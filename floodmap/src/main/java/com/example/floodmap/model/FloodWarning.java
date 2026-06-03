@@ -1,7 +1,7 @@
 package com.example.floodmap.model;
 import com.google.gson.annotations.SerializedName;
-
-public class FloodWarning {
+import java.io.Serializable;
+public class FloodWarning implements Serializable{
 
     //fields
     @SerializedName("id")
