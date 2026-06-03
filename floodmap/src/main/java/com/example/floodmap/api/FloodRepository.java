@@ -51,7 +51,7 @@ public class FloodRepository {
                     warnings = Collections.emptyList();
                 }
 
-                callback.onSuccess(warnings);
+                callback.onSuccess(body);
             }
             @Override
             public void onFailure(Call<ApiResponse> call, Throwable t){

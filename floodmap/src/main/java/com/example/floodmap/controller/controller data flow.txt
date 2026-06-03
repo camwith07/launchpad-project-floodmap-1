@@ -1,0 +1,65 @@
+USER TAPS "Live Flood Data" BUTTON
+            │
+            ▼
+      MainActivity
+      controller.loadFloodWarnings(2)
+            │
+            ▼
+      FloodController
+      creates FloodDataCallBack object
+            │
+            ▼
+      FloodRepository
+      fetchFloodWarnings(callback)
+            │
+            ▼
+      FloodApiClient
+      builds Retrofit instance
+            │
+            ▼
+      FloodApiService
+      GET → environment.data.gov.uk/flood-monitoring/id/floods
+            │
+            ▼
+      ENVIRONMENT AGENCY API
+      returns raw JSON
+            │
+            ▼
+      Gson converts JSON → ApiResponse object
+            │
+         ┌──┴──────────────────┐
+         │                     │
+    SUCCESS             FAILURE
+         │                     │
+         ▼                     ▼
+  FloodRepository         FloodRepository
+  callback.onSuccess      callback.onError(t)
+  (ApiResponse)                │
+         │                     ▼
+         ▼              FloodController
+  FloodController         callback.onError
+  response.getItems()     (t.getMessage())
+         │                     │
+         ▼                     ▼
+  filter warnings         MainActivity
+  by severityLevel        onError()
+  <= maxSeverityLevel           │
+         │                     ▼
+         ▼              Toast: "Error...
+  callback                Try Demo Mode"
+  .onWarningsReady
+  (filtered list)
+         │
+         ▼
+    MainActivity
+    runOnUiThread()
+    launchMap(warnings)
+         │
+         ▼
+    MapActivity
+    displayWarnings()
+         │
+         ▼
+    OSMDroid Map
+    marker dropped
+    for each warning
