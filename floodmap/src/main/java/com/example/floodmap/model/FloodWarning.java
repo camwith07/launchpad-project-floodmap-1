@@ -115,5 +115,15 @@ public class FloodWarning implements Serializable{
                 ", longitude=" + longitude +
                 '}';
     }
+    public String getTitle(){
+        return "{" +
+                ", severity='" + severity + "\n" +
+                ", severityLevel=" + severityLevel + "\n" +
+                ", description='" + description + "\n" +
+                ", message='" + message + "\n" +
+                ", latitude=" + latitude +
+                ", longitude=" + longitude
+                ;
+    }
 
 }
