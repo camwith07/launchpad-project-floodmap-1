@@ -1,8 +1,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity = "center"
-    android:orientation = "vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
+    android:orientation="vertical"
     android:padding="32dp"
     android:background="#1a1a2e">
 
@@ -23,6 +24,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#0077b6"
         android:textColor="#ffffff"
+        android:translationY="225dp"
         android:padding="16dp"
         android:layout_marginBottom="16dp"
         android:text="ACCESSIBILITY" />
@@ -32,9 +34,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="#0077b6"
-        android:translationY="100dp"
+        android:translationY="300dp"
         android:textColor="#ffffff"
         android:padding="16dp"
         android:text="NOTIFICATIONS" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#FFFFFF"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/nav_bar" />
 
 </RelativeLayout>

@@ -56,7 +56,10 @@ public class MainActivity extends AppCompatActivity {
                 launchMap(testWarnings);
             }
             else if (itemId == R.id.settings) {
-                replaceFragment(new settings());
+                Intent intent = new Intent(MainActivity.this, SettingActivity.class);
+                startActivity(intent);
+                finish();
+                return true;
             }
             return true;
         });

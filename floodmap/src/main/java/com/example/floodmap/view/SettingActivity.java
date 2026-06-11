@@ -7,24 +7,11 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.floodmap.R;
-import com.example.floodmap.favourites;
-import com.example.floodmap.homeLayout;
-import com.example.floodmap.model.FloodWarning;
-import com.example.floodmap.settings;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
 import org.osmdroid.config.Configuration;
-import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
-import org.osmdroid.util.GeoPoint;
-import org.osmdroid.views.MapView;
-import org.osmdroid.views.overlay.Marker;
-import com.example.floodmap.R;
-import com.example.floodmap.favourites;
-import com.example.floodmap.homeLayout;
-import com.example.floodmap.model.FloodWarning;
-import java.util.ArrayList;
-import java.util.List;
+
 
 
 public class SettingActivity extends AppCompatActivity{
@@ -34,5 +21,27 @@ public class SettingActivity extends AppCompatActivity{
         super.onCreate(SavedInstanceState);
         Configuration.getInstance().setUserAgentValue(getPackageName());
         setContentView(R.layout.activity_settings);
+        BottomNavigationView navigationMenu = findViewById(R.id.nav_bar);
+        navigationMenu.setSelectedItemId(R.id.settings);
+        navigationMenu.setOnItemSelectedListener(item -> {
+            int itemId = item.getItemId();
+            if (itemId == R.id.home){
+                Intent intent = new Intent(SettingActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+                return true;
+            }
+            else if(itemId == R.id.favourites){
+                Intent intent = new Intent(SettingActivity.this, MapActivity.class);
+                startActivity(intent);
+                finish();
+                return true;
+            }
+            else if(itemId == R.id.settings){
+                return true;
+            }
+            return false;
+
+        });
     }
 }
