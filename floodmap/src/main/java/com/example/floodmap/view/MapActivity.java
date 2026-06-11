@@ -65,7 +65,7 @@ public class MapActivity extends AppCompatActivity{
                 return true;
             }
             else if(itemId == R.id.settings){
-                Intent intent = new Intent(MapActivity.this, MapActivity.class);
+                Intent intent = new Intent(MapActivity.this, SettingActivity.class);
                 startActivity(intent);
                 finish();
                 return true;
