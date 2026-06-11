@@ -7,7 +7,7 @@ public class FloodArea {
     @SerializedName("floodAreaID")
     private String floodAreaID;
 
-    @SerializedName("couny")
+    @SerializedName("county")
     private String county;
 
     @SerializedName("RiverorSea")

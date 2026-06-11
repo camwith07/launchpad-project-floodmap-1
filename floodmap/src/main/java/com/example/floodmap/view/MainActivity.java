@@ -1,6 +1,7 @@
 package com.example.floodmap.view;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -64,7 +65,20 @@ public class MainActivity extends AppCompatActivity {
                 controller.loadFloodWarnings(2, new FloodController.ControllerCallback() {
                     @Override
                     public void onWarningsReady(List<FloodWarning> warnings) {
-                        runOnUiThread(() -> launchMap(warnings));
+                        runOnUiThread(()->{
+                            if (warnings == null || warnings.isEmpty()){
+                                new AlertDialog.Builder(MainActivity.this)
+                                        .setTitle("No Live Flood Warnings")
+                                        .setMessage("There are currently no flood warnings")
+                                        .setPositiveButton("Got it", (dialog, which)-> dialog.dismiss())
+                                                .show();
+                            }
+                            else{
+                                launchMap(warnings);
+                            }
+                        });
+
+                        //runOnUiThread(() -> launchMap(warnings));
                     }
 
                     @Override

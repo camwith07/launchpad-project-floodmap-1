@@ -1,26 +1,4 @@
-//package com.example.floodmap.controller;
-//import com.example.floodmap.model.FloodWarning;
-//
-//
-//public class FloodController {
-//
-//    String dataPassThrough;
-//
-//    public FloodController() {
-//        // Empty constructor
-//        //this.Severity = Severity;
-//    }
-//    public void controlCentre() {
-//        FloodWarning retrieveData = new FloodWarning();
-//        dataPassThrough = retrieveData.getSeverity();
-//        System.out.println("Flood warning estimation " + dataPassThrough);
-//    }
-//    public static void main(String[] args){
-//        FloodController controller = new FloodController();
-//        controller.controlCentre();
-//    }
-//
-//}
+
 package com.example.floodmap.controller;
 
 import com.example.floodmap.api.FloodDataCallBack;

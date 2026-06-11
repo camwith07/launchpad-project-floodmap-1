@@ -116,13 +116,12 @@ public class FloodWarning implements Serializable{
                 '}';
     }
     public String getTitle(){
-        return "{" +
-                ", severity='" + severity + "\n" +
-                ", severityLevel=" + severityLevel + "\n" +
-                ", description='" + description + "\n" +
-                ", message='" + message + "\n" +
-                ", latitude=" + latitude +
-                ", longitude=" + longitude
+        return "Severity: " + severity + "\n" +
+                "SeverityLevel: " + severityLevel + "\n" +
+                "Description: " + description + "\n" +
+                "Message: " + message + "\n" +
+                "Latitude: " + latitude + "\n"+
+                "Longitude: " + longitude
                 ;
     }
 
